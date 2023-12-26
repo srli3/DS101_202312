@@ -1,0 +1,49 @@
+import random
+
+# question1: string
+def question_1():
+  user_input = input("Where is the capital of China? Please enter the answer with a string.")
+  return user_input
+
+# quesetion1 helper
+def question_1_helper(user_input):
+  if user_input.upper() == "BEIJING":
+    return 1
+  else:
+    return 0
+  return 0
+
+# question2: integer
+def question_2():
+  left = random.randint(-100, 100)
+  right = random.randint(-100, 100)
+
+  user_input = input("What's " + str(left) + "+" + str(right) + " equals to?")
+  return int(user_input), left + right
+
+# question2 helper
+def question_2_helper(user_input, correct_ans):
+  if user_input == correct_ans:
+    return 1
+  else:
+    return 0
+
+# question 3,4,5
+# question helper 3,4,5
+
+def quiz():
+  while True:
+    print("Here is a quiz.")
+    question_1_ans = question_1()
+    question_2_ans, question_2_correct_ans = question_2()
+
+    total_score = question_1_helper(question_1_ans) + question_2_helper(question_2_ans, question_2_correct_ans)
+    f = pyfiglet.Figlet(font = 'slant')
+    print(f.renderText("Your score is  " + str(total_score)))
+
+    quiz_again = input("Quiz again? Please enter Y/N.")
+    if quiz_again == "Y":
+      continue
+    else:
+      break
+
